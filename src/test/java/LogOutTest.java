@@ -7,9 +7,17 @@ public class LogOutTest extends TestBase {
 
     @BeforeMethod
     public void preCondition (){
-        login();
+        if (isElement(By.cssSelector("[href='/login']"))){
+            login("feldmanvu7@gmail.com", "Sultry791067-");
+        }
+
 
     }
+
+    private boolean isElement(By locator) {
+        return wd.findElements(locator).size()>0;
+    }
+
     @Test
 
     public void singOut(){
